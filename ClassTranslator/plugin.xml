@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension id="ClassTranslator" name="ClassTranslator" point="org.eclipse.core.resources.builders">
+        <builder hasNature="true">
+            <run class="jp.ac.tsukuba.cs.softlab.translator.ClassTranslator"></run>
+        </builder>
+    </extension>
+    <extension id="ClassNature" name="Classネイチャ" point="org.eclipse.core.resources.natures">
+        <runtime>
+            <run class="jp.ac.tsukuba.cs.softlab.translator.ClassNature"></run>
+        </runtime>
+        <builder
+            id="ClassTranslator.ClassTranslator">
+        </builder>
+    </extension>
+    <extension point="org.eclipse.ui.propertyPages">
+        <page
+            adaptable="true"
+            class="jp.ac.tsukuba.cs.softlab.translator.MessagePackPropertyPage"
+            id="jp.ac.tsukuba.cs.softlab.translator.page"
+            name="MessagePack"
+            objectClass="org.eclipse.core.resources.IProject"
+         />
+    </extension>
+</plugin>
